@@ -51,9 +51,9 @@ function init() {
   
   select3.addEventListener('click', () => {
     audio.play();
-    if (select1.target.value == 'party-horn') {
-      // TO DO
-      jsConfetti.addConfetti()
+    const event = select1.value
+    if (event == 'party-horn') {
+      jsConfetti.addConfetti();
     };
   });
 }

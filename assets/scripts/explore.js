@@ -3,7 +3,6 @@
 window.addEventListener('DOMContentLoaded', init);
 
 function init() {
-  // TODO
   const synth = window.speechSynthesis;
 
   const text = document.querySelector('textarea');
@@ -46,14 +45,19 @@ function init() {
       }
     }
 
-    // utterThis.pitch = pitch.value;
-    // utterThis.rate = rate.value;
-
-    img.src = 'assets/images/smiling-open.png';
+    //img.src = 'assets/images/smiling-open.png';
     synth.speak(utterThis);
-    inputTxt.blur();
+
+    var is_speaking = synth.speaking;
+    var is_paused = synth.paused;
+    var is_pending = synth.pending;
+
+    while (is_speaking) {
+      var is_speaking = synth.speaking;
+      var is_paused = synth.paused;
+      var is_pending = synth.pending;
+      img.src = 'assets/images/smiling-open.png';
+    }
+
   })
-
-  await (img.src = 'assets/images/smiling.png');
-
 }
